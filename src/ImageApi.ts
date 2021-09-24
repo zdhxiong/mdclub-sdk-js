@@ -3,9 +3,9 @@ import {
   postRequest,
   patchRequest,
   deleteRequest,
-} from './util/requestAlias';
-import { buildURL, buildRequestBody } from './util/requestHandler';
-import { ImageResponse, EmptyResponse, ImagesResponse } from './models';
+} from './util/requestAlias.js';
+import { buildURL, buildRequestBody } from './util/requestHandler.js';
+import { ImageResponse, EmptyResponse, ImagesResponse } from './models.js';
 
 interface DeleteParams {
   /**

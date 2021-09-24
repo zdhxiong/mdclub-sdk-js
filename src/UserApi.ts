@@ -6,8 +6,8 @@ import {
   putRequest,
   patchRequest,
   deleteRequest,
-} from './util/requestAlias';
-import { buildURL, buildRequestBody } from './util/requestHandler';
+} from './util/requestAlias.js';
+import { buildURL, buildRequestBody } from './util/requestHandler.js';
 import {
   UserAvatarResponse,
   UsersResponse,
@@ -20,7 +20,7 @@ import {
   TopicsResponse,
   FollowerCountResponse,
   EmptyResponse,
-} from './models';
+} from './models.js';
 
 interface AddFollowParams {
   /**

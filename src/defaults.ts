@@ -4,7 +4,7 @@ import {
   ErrorCallback,
   CompleteCallback,
   RequestAdapterInterface,
-} from './util/misc';
+} from './util/misc.js';
 
 /**
  * SDK 全局配置参数

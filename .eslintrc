@@ -5,6 +5,7 @@
   },
   "plugins": [
     "@typescript-eslint",
+    "import",
     "prettier"
   ],
   "rules": {
@@ -12,11 +13,12 @@
     "@typescript-eslint/no-non-null-assertion": 0,
     "@typescript-eslint/ban-ts-comment": 0,
     "@typescript-eslint/camelcase": 0,
-    "prettier/prettier": "error"
+    "prettier/prettier": "error",
+    "import/extensions": ["error", "always", { "ignorePackages": true }],
+    "import/order": ["error"]
   },
   "extends": [
     "plugin:@typescript-eslint/recommended",
-    "prettier",
-    "prettier/@typescript-eslint"
+    "prettier"
   ]
 }

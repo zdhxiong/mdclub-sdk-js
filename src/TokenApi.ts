@@ -1,9 +1,9 @@
 // @ts-ignore
 import sha1 from 'sha-1';
-import { postRequest } from './util/requestAlias';
-import { buildURL, buildRequestBody } from './util/requestHandler';
-import { TokenResponse } from './models';
-import defaults from './defaults';
+import { postRequest } from './util/requestAlias.js';
+import { buildURL, buildRequestBody } from './util/requestHandler.js';
+import { TokenResponse } from './models.js';
+import defaults from './defaults.js';
 
 interface LoginParams {
   /**

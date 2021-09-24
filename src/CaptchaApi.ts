@@ -1,6 +1,6 @@
-import { postRequest } from './util/requestAlias';
-import { buildURL } from './util/requestHandler';
-import { CaptchaResponse } from './models';
+import { postRequest } from './util/requestAlias.js';
+import { buildURL } from './util/requestHandler.js';
+import { CaptchaResponse } from './models.js';
 
 /**
  * 生成新的图形验证码

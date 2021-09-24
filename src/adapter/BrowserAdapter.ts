@@ -1,21 +1,22 @@
 import ajax from 'mdui.jq/es/functions/ajax';
 import extend from 'mdui.jq/es/functions/extend';
-import globalOptions from '../defaults';
+import PlainObject from 'mdui.jq/es/interfaces/PlainObject';
+import globalOptions from '../defaults.js';
 import {
   RequestAdapterInterface,
   RequestOptionsInterface,
   ResponseInterface,
-} from '../util/misc';
-import { GET } from '../util/requestMethod';
-import BrowserAbstract from './abstract/Browser';
-import PlainObject from 'mdui.jq/es/interfaces/PlainObject';
+} from '../util/misc.js';
+import { GET } from '../util/requestMethod.js';
+import BrowserAbstract from './abstract/Browser.js';
 
 /**
  * 浏览器适配器，使用 mdui.jq 中的 ajax 函数实现
  */
 export default class
   extends BrowserAbstract
-  implements RequestAdapterInterface {
+  implements RequestAdapterInterface
+{
   request(options: RequestOptionsInterface): Promise<ResponseInterface> {
     const isFormData = options.data instanceof FormData;
     let headers: PlainObject = {

@@ -1,5 +1,5 @@
-import { getRequest, postRequest, deleteRequest } from './util/requestAlias';
-import { buildURL } from './util/requestHandler';
+import { getRequest, postRequest, deleteRequest } from './util/requestAlias.js';
+import { buildURL } from './util/requestHandler.js';
 import {
   QuestionsResponse,
   TopicsResponse,
@@ -8,7 +8,7 @@ import {
   EmptyResponse,
   FollowerCountResponse,
   ArticlesResponse,
-} from './models';
+} from './models.js';
 
 interface DeleteParams {
   /**

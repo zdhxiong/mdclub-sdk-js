@@ -1,11 +1,11 @@
-import { getRequest, postRequest, deleteRequest } from './util/requestAlias';
-import { buildURL, buildRequestBody } from './util/requestHandler';
+import { getRequest, postRequest, deleteRequest } from './util/requestAlias.js';
+import { buildURL, buildRequestBody } from './util/requestHandler.js';
 import {
   ReportsResponse,
   ReportResponse,
   ReportGroupsResponse,
   EmptyResponse,
-} from './models';
+} from './models.js';
 
 interface DeleteParams {
   /**

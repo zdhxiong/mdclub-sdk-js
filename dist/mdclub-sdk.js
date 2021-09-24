@@ -7,7 +7,7 @@
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
   typeof define === 'function' && define.amd ? define(['exports'], factory) :
   (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.mdclubSDK = {}));
-}(this, (function (exports) { 'use strict';
+})(this, (function (exports) { 'use strict';
 
   !function(){try{return new MouseEvent("test")}catch(e$1){}var e=function(e,t){t=t||{bubbles:!1,cancelable:!1};var n=document.createEvent("MouseEvent");return n.initMouseEvent(e,t.bubbles,t.cancelable,window,0,t.screenX||0,t.screenY||0,t.clientX||0,t.clientY||0,t.ctrlKey||!1,t.altKey||!1,t.shiftKey||!1,t.metaKey||!1,t.button||0,t.relatedTarget||null),n};e.prototype=Event.prototype,window.MouseEvent=e;}();
 
@@ -430,7 +430,7 @@
    * 为了使用模块扩充，这里不能使用默认导出
    */
   var JQ = function JQ(arr) {
-      var this$1 = this;
+      var this$1$1 = this;
 
       this.length = 0;
       if (!arr) {
@@ -438,7 +438,7 @@
       }
       each(arr, function (i, item) {
           // @ts-ignore
-          this$1[i] = item;
+          this$1$1[i] = item;
       });
       this.length = arr.length;
       return this;
@@ -965,9 +965,9 @@
   var PATCH = 'PATCH';
   var DELETE = 'DELETE';
 
-  var defaultExport = function defaultExport () {};
+  var defaultExport$1 = function defaultExport () {};
 
-  defaultExport.prototype.getStorage = function getStorage (key) {
+  defaultExport$1.prototype.getStorage = function getStorage (key) {
       return window.localStorage.getItem(key);
   };
   /**
@@ -975,21 +975,21 @@
    * @param key
    * @param data
    */
-  defaultExport.prototype.setStorage = function setStorage (key, data) {
+  defaultExport$1.prototype.setStorage = function setStorage (key, data) {
       window.localStorage.setItem(key, data);
   };
   /**
    * 删除数据存储
    * @param key
    */
-  defaultExport.prototype.removeStorage = function removeStorage (key) {
+  defaultExport$1.prototype.removeStorage = function removeStorage (key) {
       window.localStorage.removeItem(key);
   };
 
   /**
    * 浏览器适配器，使用 mdui.jq 中的 ajax 函数实现
    */
-  var defaultExport$1 = /*@__PURE__*/(function (BrowserAbstract) {
+  var defaultExport = /*@__PURE__*/(function (BrowserAbstract) {
       function defaultExport () {
           BrowserAbstract.apply(this, arguments);
       }
@@ -1038,9 +1038,9 @@
       };
 
       return defaultExport;
-  }(defaultExport));
+  }(defaultExport$1));
 
-  defaults.adapter = new defaultExport$1();
+  defaults.adapter = new defaultExport();
 
   /**
    * 错误代码
@@ -1493,43 +1493,43 @@
    *
    * 只要没有错误异常，无论是否有回答被删除，该接口都会返回成功。  管理员可删除回答。回答作者是否可删除回答，由管理员在后台的设置决定。
    */
-  var del = function (params) { return deleteRequest(buildURL('/answers/{answer_id}', params)); };
+  var del$7 = function (params) { return deleteRequest(buildURL('/answers/{answer_id}', params)); };
   /**
    * 🔑为回答投票
    *
    * 为回答投票。
    */
-  var addVote = function (params) { return postRequest(buildURL('/answers/{answer_id}/voters', params), buildRequestBody(params, ['type'])); };
+  var addVote$3 = function (params) { return postRequest(buildURL('/answers/{answer_id}/voters', params), buildRequestBody(params, ['type'])); };
   /**
    * 在指定回答下发表评论
    *
    * 在指定回答下发表评论。
    */
-  var createComment = function (params) { return postRequest(buildURL('/answers/{answer_id}/comments', params, ['include']), buildRequestBody(params, ['content'])); };
+  var createComment$2 = function (params) { return postRequest(buildURL('/answers/{answer_id}/comments', params, ['include']), buildRequestBody(params, ['content'])); };
   /**
    * 🔐批量删除回答
    *
    * 批量删除回答。  只要没有错误异常，无论是否有回答被删除，该接口都会返回成功。
    */
-  var deleteMultiple = function (params) { return deleteRequest(buildURL('/answers/{answer_ids}', params)); };
+  var deleteMultiple$7 = function (params) { return deleteRequest(buildURL('/answers/{answer_ids}', params)); };
   /**
    * 🔑取消为回答的投票
    *
    * 取消为回答的投票。
    */
-  var deleteVote = function (params) { return deleteRequest(buildURL('/answers/{answer_id}/voters', params)); };
+  var deleteVote$3 = function (params) { return deleteRequest(buildURL('/answers/{answer_id}/voters', params)); };
   /**
    * 获取回答详情
    *
    * 获取回答详情。
    */
-  var get = function (params) { return getRequest(buildURL('/answers/{answer_id}', params, ['include'])); };
+  var get$8 = function (params) { return getRequest(buildURL('/answers/{answer_id}', params, ['include'])); };
   /**
    * 获取指定回答的评论
    *
    * 获取指定回答的评论。
    */
-  var getComments = function (params) { return getRequest(buildURL('/answers/{answer_id}/comments', params, [
+  var getComments$3 = function (params) { return getRequest(buildURL('/answers/{answer_id}/comments', params, [
       'page',
       'per_page',
       'order',
@@ -1539,7 +1539,7 @@
    *
    * 获取回答列表。
    */
-  var getList = function (params) {
+  var getList$8 = function (params) {
       if ( params === void 0 ) params = {};
 
       return getRequest(buildURL('/answers', params, [
@@ -1557,7 +1557,7 @@
    *
    * 获取回答的投票者。
    */
-  var getVoters = function (params) { return getRequest(buildURL('/answers/{answer_id}/voters', params, [
+  var getVoters$3 = function (params) { return getRequest(buildURL('/answers/{answer_id}/voters', params, [
       'page',
       'per_page',
       'include',
@@ -1567,48 +1567,48 @@
    *
    * 把回答放入回收站。
    */
-  var trash = function (params) { return postRequest(buildURL('/answers/{answer_id}/trash', params, ['include'])); };
+  var trash$4 = function (params) { return postRequest(buildURL('/answers/{answer_id}/trash', params, ['include'])); };
   /**
    * 🔐批量把回答放入回收站
    *
    * 批量把回答放入回收站。
    */
-  var trashMultiple = function (params) { return postRequest(buildURL('/answers/{answer_ids}/trash', params, ['include'])); };
+  var trashMultiple$4 = function (params) { return postRequest(buildURL('/answers/{answer_ids}/trash', params, ['include'])); };
   /**
    * 🔐把回答移出回收站
    *
    * 把回答移出回收站。
    */
-  var untrash = function (params) { return postRequest(buildURL('/answers/{answer_id}/untrash', params, ['include'])); };
+  var untrash$4 = function (params) { return postRequest(buildURL('/answers/{answer_id}/untrash', params, ['include'])); };
   /**
    * 🔐批量把回答移出回收站
    *
    * 批量把回答移出回收站。
    */
-  var untrashMultiple = function (params) { return postRequest(buildURL('/answers/{answer_ids}/untrash', params, ['include'])); };
+  var untrashMultiple$4 = function (params) { return postRequest(buildURL('/answers/{answer_ids}/untrash', params, ['include'])); };
   /**
    * 🔑修改回答信息
    *
    * 管理员可修改回答。回答作者是否可修改回答，由管理员在后台的设置决定。  &#x60;content_markdown&#x60; 和 &#x60;content_rendered&#x60; 两个参数仅传入其中一个即可， 若两个参数都传入，则以 &#x60;content_markdown&#x60; 为准。
    */
-  var update = function (params) { return patchRequest(buildURL('/answers/{answer_id}', params, ['include']), buildRequestBody(params, ['content_markdown', 'content_rendered'])); };
+  var update$7 = function (params) { return patchRequest(buildURL('/answers/{answer_id}', params, ['include']), buildRequestBody(params, ['content_markdown', 'content_rendered'])); };
 
   var AnswerApi = /*#__PURE__*/Object.freeze({
     __proto__: null,
-    del: del,
-    addVote: addVote,
-    createComment: createComment,
-    deleteMultiple: deleteMultiple,
-    deleteVote: deleteVote,
-    get: get,
-    getComments: getComments,
-    getList: getList,
-    getVoters: getVoters,
-    trash: trash,
-    trashMultiple: trashMultiple,
-    untrash: untrash,
-    untrashMultiple: untrashMultiple,
-    update: update
+    del: del$7,
+    addVote: addVote$3,
+    createComment: createComment$2,
+    deleteMultiple: deleteMultiple$7,
+    deleteVote: deleteVote$3,
+    get: get$8,
+    getComments: getComments$3,
+    getList: getList$8,
+    getVoters: getVoters$3,
+    trash: trash$4,
+    trashMultiple: trashMultiple$4,
+    untrash: untrash$4,
+    untrashMultiple: untrashMultiple$4,
+    update: update$7
   });
 
   /**
@@ -1616,25 +1616,25 @@
    *
    * 只要没有错误异常，无论是否有文章被删除，该接口都会返回成功。  管理员可删除文章。文章作者是否可删除文章，由管理员在后台的设置决定。
    */
-  var del$1 = function (params) { return deleteRequest(buildURL('/articles/{article_id}', params)); };
+  var del$6 = function (params) { return deleteRequest(buildURL('/articles/{article_id}', params)); };
   /**
    * 🔑添加关注
    *
    * 添加关注。
    */
-  var addFollow = function (params) { return postRequest(buildURL('/articles/{article_id}/followers', params)); };
+  var addFollow$3 = function (params) { return postRequest(buildURL('/articles/{article_id}/followers', params)); };
   /**
    * 🔑为文章投票
    *
    * 为文章投票。
    */
-  var addVote$1 = function (params) { return postRequest(buildURL('/articles/{article_id}/voters', params), buildRequestBody(params, ['type'])); };
+  var addVote$2 = function (params) { return postRequest(buildURL('/articles/{article_id}/voters', params), buildRequestBody(params, ['type'])); };
   /**
    * 🔑发表文章
    *
    * &#x60;content_markdown&#x60; 和 &#x60;content_rendered&#x60; 两个参数仅传入其中一个即可， 若两个参数都传入，则以 &#x60;content_markdown&#x60; 为准。
    */
-  var create = function (params) { return postRequest(buildURL('/articles', params, ['include']), buildRequestBody(params, [
+  var create$3 = function (params) { return postRequest(buildURL('/articles', params, ['include']), buildRequestBody(params, [
       'title',
       'topic_ids',
       'content_markdown',
@@ -1650,31 +1650,31 @@
    *
    * 取消关注。
    */
-  var deleteFollow = function (params) { return deleteRequest(buildURL('/articles/{article_id}/followers', params)); };
+  var deleteFollow$3 = function (params) { return deleteRequest(buildURL('/articles/{article_id}/followers', params)); };
   /**
    * 🔐批量删除文章
    *
    * 批量删除文章。  只要没有错误异常，无论是否有文章被删除，该接口都会返回成功。
    */
-  var deleteMultiple$1 = function (params) { return deleteRequest(buildURL('/articles/{article_ids}', params)); };
+  var deleteMultiple$6 = function (params) { return deleteRequest(buildURL('/articles/{article_ids}', params)); };
   /**
    * 🔑取消为文章的投票
    *
    * 取消为文章的投票。
    */
-  var deleteVote$1 = function (params) { return deleteRequest(buildURL('/articles/{article_id}/voters', params)); };
+  var deleteVote$2 = function (params) { return deleteRequest(buildURL('/articles/{article_id}/voters', params)); };
   /**
    * 获取指定文章信息
    *
    * 获取指定文章信息。
    */
-  var get$1 = function (params) { return getRequest(buildURL('/articles/{article_id}', params, ['include'])); };
+  var get$7 = function (params) { return getRequest(buildURL('/articles/{article_id}', params, ['include'])); };
   /**
    * 获取指定文章的评论列表
    *
    * 获取指定文章的评论列表。
    */
-  var getComments$1 = function (params) { return getRequest(buildURL('/articles/{article_id}/comments', params, [
+  var getComments$2 = function (params) { return getRequest(buildURL('/articles/{article_id}/comments', params, [
       'page',
       'per_page',
       'order',
@@ -1684,7 +1684,7 @@
    *
    * 获取指定文章的关注者。
    */
-  var getFollowers = function (params) { return getRequest(buildURL('/articles/{article_id}/followers', params, [
+  var getFollowers$3 = function (params) { return getRequest(buildURL('/articles/{article_id}/followers', params, [
       'page',
       'per_page',
       'include' ])); };
@@ -1693,7 +1693,7 @@
    *
    * 获取文章列表。
    */
-  var getList$1 = function (params) {
+  var getList$7 = function (params) {
       if ( params === void 0 ) params = {};
 
       return getRequest(buildURL('/articles', params, [
@@ -1711,7 +1711,7 @@
    *
    * 获取文章的投票者。
    */
-  var getVoters$1 = function (params) { return getRequest(buildURL('/articles/{article_id}/voters', params, [
+  var getVoters$2 = function (params) { return getRequest(buildURL('/articles/{article_id}/voters', params, [
       'page',
       'per_page',
       'include',
@@ -1721,31 +1721,31 @@
    *
    * 把文章放入回收站。
    */
-  var trash$1 = function (params) { return postRequest(buildURL('/articles/{article_id}/trash', params, ['include'])); };
+  var trash$3 = function (params) { return postRequest(buildURL('/articles/{article_id}/trash', params, ['include'])); };
   /**
    * 🔐批量把文章放入回收站
    *
    * 批量把文章放入回收站。
    */
-  var trashMultiple$1 = function (params) { return postRequest(buildURL('/articles/{article_ids}/trash', params, ['include'])); };
+  var trashMultiple$3 = function (params) { return postRequest(buildURL('/articles/{article_ids}/trash', params, ['include'])); };
   /**
    * 🔐把文章移出回收站
    *
    * 把文章移出回收站。
    */
-  var untrash$1 = function (params) { return postRequest(buildURL('/articles/{article_id}/untrash', params, ['include'])); };
+  var untrash$3 = function (params) { return postRequest(buildURL('/articles/{article_id}/untrash', params, ['include'])); };
   /**
    * 🔐批量把文章移出回收站
    *
    * 批量把文章移出回收站。
    */
-  var untrashMultiple$1 = function (params) { return postRequest(buildURL('/articles/{article_ids}/untrash', params, ['include'])); };
+  var untrashMultiple$3 = function (params) { return postRequest(buildURL('/articles/{article_ids}/untrash', params, ['include'])); };
   /**
    * 🔑更新文章信息
    *
    * 管理员可修改文章。文章作者是否可修改文章，由管理员在后台的设置决定。  &#x60;content_markdown&#x60; 和 &#x60;content_rendered&#x60; 两个参数仅传入其中一个即可， 若两个参数都传入，则以 &#x60;content_markdown&#x60; 为准。
    */
-  var update$1 = function (params) { return patchRequest(buildURL('/articles/{article_id}', params, ['include']), buildRequestBody(params, [
+  var update$6 = function (params) { return patchRequest(buildURL('/articles/{article_id}', params, ['include']), buildRequestBody(params, [
       'title',
       'topic_ids',
       'content_markdown',
@@ -1753,24 +1753,24 @@
 
   var ArticleApi = /*#__PURE__*/Object.freeze({
     __proto__: null,
-    del: del$1,
-    addFollow: addFollow,
-    addVote: addVote$1,
-    create: create,
+    del: del$6,
+    addFollow: addFollow$3,
+    addVote: addVote$2,
+    create: create$3,
     createComment: createComment$1,
-    deleteFollow: deleteFollow,
-    deleteMultiple: deleteMultiple$1,
-    deleteVote: deleteVote$1,
-    get: get$1,
-    getComments: getComments$1,
-    getFollowers: getFollowers,
-    getList: getList$1,
-    getVoters: getVoters$1,
-    trash: trash$1,
-    trashMultiple: trashMultiple$1,
-    untrash: untrash$1,
-    untrashMultiple: untrashMultiple$1,
-    update: update$1
+    deleteFollow: deleteFollow$3,
+    deleteMultiple: deleteMultiple$6,
+    deleteVote: deleteVote$2,
+    get: get$7,
+    getComments: getComments$2,
+    getFollowers: getFollowers$3,
+    getList: getList$7,
+    getVoters: getVoters$2,
+    trash: trash$3,
+    trashMultiple: trashMultiple$3,
+    untrash: untrash$3,
+    untrashMultiple: untrashMultiple$3,
+    update: update$6
   });
 
   /**
@@ -1790,13 +1790,13 @@
    *
    * 只要没有错误异常，无论是否有回答被删除，该接口都会返回成功。  管理员可删除评论。评论作者是否可删除评论，由管理员在后台的设置决定。
    */
-  var del$2 = function (params) { return deleteRequest(buildURL('/comments/{comment_id}', params)); };
+  var del$5 = function (params) { return deleteRequest(buildURL('/comments/{comment_id}', params)); };
   /**
    * 🔑为评论投票
    *
    * 为评论投票。
    */
-  var addVote$2 = function (params) { return postRequest(buildURL('/comments/{comment_id}/voters', params), buildRequestBody(params, ['type'])); };
+  var addVote$1 = function (params) { return postRequest(buildURL('/comments/{comment_id}/voters', params), buildRequestBody(params, ['type'])); };
   /**
    * 🔑在指定评论下发表回复
    *
@@ -1808,25 +1808,25 @@
    *
    * 批量删除评论。  只要没有错误异常，无论是否有评论被删除，该接口都会返回成功。
    */
-  var deleteMultiple$2 = function (params) { return deleteRequest(buildURL('/comments/{comment_ids}', params)); };
+  var deleteMultiple$5 = function (params) { return deleteRequest(buildURL('/comments/{comment_ids}', params)); };
   /**
    * 🔑取消为评论的投票
    *
    * 取消为评论的投票。
    */
-  var deleteVote$2 = function (params) { return deleteRequest(buildURL('/comments/{comment_id}/voters', params)); };
+  var deleteVote$1 = function (params) { return deleteRequest(buildURL('/comments/{comment_id}/voters', params)); };
   /**
    * 获取评论详情
    *
    * 获取评论详情。
    */
-  var get$2 = function (params) { return getRequest(buildURL('/comments/{comment_id}', params, ['include'])); };
+  var get$6 = function (params) { return getRequest(buildURL('/comments/{comment_id}', params, ['include'])); };
   /**
    * 🔐获取所有评论
    *
    * 获取所有评论。
    */
-  var getList$2 = function (params) {
+  var getList$6 = function (params) {
       if ( params === void 0 ) params = {};
 
       return getRequest(buildURL('/comments', params, [
@@ -1855,7 +1855,7 @@
    *
    * 获取评论的投票者。
    */
-  var getVoters$2 = function (params) { return getRequest(buildURL('/comments/{comment_id}/voters', params, [
+  var getVoters$1 = function (params) { return getRequest(buildURL('/comments/{comment_id}/voters', params, [
       'page',
       'per_page',
       'include',
@@ -1889,24 +1889,24 @@
    *
    * 管理员可修改评论。评论作者是否可修改评论，由管理员在后台的设置决定。
    */
-  var update$2 = function (params) { return patchRequest(buildURL('/comments/{comment_id}', params, ['include']), buildRequestBody(params, ['content'])); };
+  var update$5 = function (params) { return patchRequest(buildURL('/comments/{comment_id}', params, ['include']), buildRequestBody(params, ['content'])); };
 
   var CommentApi = /*#__PURE__*/Object.freeze({
     __proto__: null,
-    del: del$2,
-    addVote: addVote$2,
+    del: del$5,
+    addVote: addVote$1,
     createReply: createReply,
-    deleteMultiple: deleteMultiple$2,
-    deleteVote: deleteVote$2,
-    get: get$2,
-    getList: getList$2,
+    deleteMultiple: deleteMultiple$5,
+    deleteVote: deleteVote$1,
+    get: get$6,
+    getList: getList$6,
     getReplies: getReplies,
-    getVoters: getVoters$2,
+    getVoters: getVoters$1,
     trash: trash$2,
     trashMultiple: trashMultiple$2,
     untrash: untrash$2,
     untrashMultiple: untrashMultiple$2,
-    update: update$2
+    update: update$5
   });
 
   /**
@@ -1926,25 +1926,25 @@
    *
    * 删除指定图片。
    */
-  var del$3 = function (params) { return deleteRequest(buildURL('/images/{key}', params)); };
+  var del$4 = function (params) { return deleteRequest(buildURL('/images/{key}', params)); };
   /**
    * 🔐批量删除图片
    *
    * 批量删除图片。  只要没有错误异常，无论是否有记录被删除，该接口都会返回成功。
    */
-  var deleteMultiple$3 = function (params) { return deleteRequest(buildURL('/images/{keys}', params)); };
+  var deleteMultiple$4 = function (params) { return deleteRequest(buildURL('/images/{keys}', params)); };
   /**
    * 获取指定图片信息
    *
    * 获取指定图片信息。
    */
-  var get$3 = function (params) { return getRequest(buildURL('/images/{key}', params, ['include'])); };
+  var get$5 = function (params) { return getRequest(buildURL('/images/{key}', params, ['include'])); };
   /**
    * 🔐获取图片列表
    *
    * 获取图片列表。
    */
-  var getList$3 = function (params) {
+  var getList$5 = function (params) {
       if ( params === void 0 ) params = {};
 
       return getRequest(buildURL('/images', params, [
@@ -1961,7 +1961,7 @@
    *
    * 更新指定图片信息。
    */
-  var update$3 = function (params) { return patchRequest(buildURL('/images/{key}', params, ['include']), buildRequestBody(params, ['filename'])); };
+  var update$4 = function (params) { return patchRequest(buildURL('/images/{key}', params, ['include']), buildRequestBody(params, ['filename'])); };
   /**
    * 🔑上传图片
    *
@@ -1975,11 +1975,11 @@
 
   var ImageApi = /*#__PURE__*/Object.freeze({
     __proto__: null,
-    del: del$3,
-    deleteMultiple: deleteMultiple$3,
-    get: get$3,
-    getList: getList$3,
-    update: update$3,
+    del: del$4,
+    deleteMultiple: deleteMultiple$4,
+    get: get$5,
+    getList: getList$5,
+    update: update$4,
     upload: upload
   });
 
@@ -1988,7 +1988,7 @@
    *
    * 只要没有错误异常，无论是否有通知被删除，该接口都会返回成功。
    */
-  var del$4 = function (params) { return deleteRequest(buildURL('/notifications/{notification_id}', params)); };
+  var del$3 = function (params) { return deleteRequest(buildURL('/notifications/{notification_id}', params)); };
   /**
    * 🔑删除所有通知
    *
@@ -2004,7 +2004,7 @@
    *
    * 只要没有错误异常，无论是否有通知被删除，该接口都会返回成功。
    */
-  var deleteMultiple$4 = function (params) { return deleteRequest(buildURL('/notifications/{notification_ids}', params)); };
+  var deleteMultiple$3 = function (params) { return deleteRequest(buildURL('/notifications/{notification_ids}', params)); };
   /**
    * 🔑获取未读通知数量
    *
@@ -2055,9 +2055,9 @@
 
   var NotificationApi = /*#__PURE__*/Object.freeze({
     __proto__: null,
-    del: del$4,
+    del: del$3,
     deleteAll: deleteAll,
-    deleteMultiple: deleteMultiple$4,
+    deleteMultiple: deleteMultiple$3,
     getCount: getCount,
     getList: getList$4,
     read: read,
@@ -2076,7 +2076,7 @@
    *
    * 更新站点全局设置。
    */
-  var update$4 = function (params) { return patchRequest(buildURL('/options', params), buildRequestBody(params, [
+  var update$3 = function (params) { return patchRequest(buildURL('/options', params), buildRequestBody(params, [
       'answer_can_delete',
       'answer_can_delete_before',
       'answer_can_delete_only_no_comment',
@@ -2160,7 +2160,7 @@
   var OptionApi = /*#__PURE__*/Object.freeze({
     __proto__: null,
     get: get$4,
-    update: update$4
+    update: update$3
   });
 
   /**
@@ -2168,25 +2168,25 @@
    *
    * 只要没有错误异常，无论是否有回答被删除，该接口都会返回成功。  管理员可删除提问。提问作者是否可删除提问，由管理员在后台的设置决定。
    */
-  var del$5 = function (params) { return deleteRequest(buildURL('/questions/{question_id}', params)); };
+  var del$2 = function (params) { return deleteRequest(buildURL('/questions/{question_id}', params)); };
   /**
    * 🔑添加关注
    *
    * 添加关注。
    */
-  var addFollow$1 = function (params) { return postRequest(buildURL('/questions/{question_id}/followers', params)); };
+  var addFollow$2 = function (params) { return postRequest(buildURL('/questions/{question_id}/followers', params)); };
   /**
    * 🔑为提问投票
    *
    * 为提问投票。
    */
-  var addVote$3 = function (params) { return postRequest(buildURL('/questions/{question_id}/voters', params), buildRequestBody(params, ['type'])); };
+  var addVote = function (params) { return postRequest(buildURL('/questions/{question_id}/voters', params), buildRequestBody(params, ['type'])); };
   /**
    * 🔑发表提问
    *
    * &#x60;content_markdown&#x60; 和 &#x60;content_rendered&#x60; 两个参数仅传入其中一个即可， 若两个参数都传入，则以 &#x60;content_markdown&#x60; 为准。
    */
-  var create$1 = function (params) { return postRequest(buildURL('/questions', params, ['include']), buildRequestBody(params, [
+  var create$2 = function (params) { return postRequest(buildURL('/questions', params, ['include']), buildRequestBody(params, [
       'title',
       'topic_ids',
       'content_markdown',
@@ -2202,37 +2202,37 @@
    *
    * 在指定提问下发表评论。
    */
-  var createComment$2 = function (params) { return postRequest(buildURL('/questions/{question_id}/comments', params, ['include']), buildRequestBody(params, ['content'])); };
+  var createComment = function (params) { return postRequest(buildURL('/questions/{question_id}/comments', params, ['include']), buildRequestBody(params, ['content'])); };
   /**
    * 🔑取消关注
    *
    * 取消关注。
    */
-  var deleteFollow$1 = function (params) { return deleteRequest(buildURL('/questions/{question_id}/followers', params)); };
+  var deleteFollow$2 = function (params) { return deleteRequest(buildURL('/questions/{question_id}/followers', params)); };
   /**
    * 🔐批量删除提问
    *
    * 批量删除提问。  只要没有错误异常，无论是否有提问被删除，该接口都会返回成功。
    */
-  var deleteMultiple$5 = function (params) { return deleteRequest(buildURL('/questions/{question_ids}', params)); };
+  var deleteMultiple$2 = function (params) { return deleteRequest(buildURL('/questions/{question_ids}', params)); };
   /**
    * 🔑取消为提问的投票
    *
    * 取消为提问的投票。
    */
-  var deleteVote$3 = function (params) { return deleteRequest(buildURL('/questions/{question_id}/voters', params)); };
+  var deleteVote = function (params) { return deleteRequest(buildURL('/questions/{question_id}/voters', params)); };
   /**
    * 获取指定提问信息
    *
    * 获取指定提问信息。
    */
-  var get$5 = function (params) { return getRequest(buildURL('/questions/{question_id}', params, ['include'])); };
+  var get$3 = function (params) { return getRequest(buildURL('/questions/{question_id}', params, ['include'])); };
   /**
    * 获取指定提问下的回答
    *
    * 获取指定提问下的回答。
    */
-  var getAnswers = function (params) { return getRequest(buildURL('/questions/{question_id}/answers', params, [
+  var getAnswers$1 = function (params) { return getRequest(buildURL('/questions/{question_id}/answers', params, [
       'page',
       'per_page',
       'order',
@@ -2242,7 +2242,7 @@
    *
    * 获取指定提问的评论。
    */
-  var getComments$2 = function (params) { return getRequest(buildURL('/questions/{question_id}/comments', params, [
+  var getComments$1 = function (params) { return getRequest(buildURL('/questions/{question_id}/comments', params, [
       'page',
       'per_page',
       'order',
@@ -2252,7 +2252,7 @@
    *
    * 获取指定提问的关注者。
    */
-  var getFollowers$1 = function (params) { return getRequest(buildURL('/questions/{question_id}/followers', params, [
+  var getFollowers$2 = function (params) { return getRequest(buildURL('/questions/{question_id}/followers', params, [
       'page',
       'per_page',
       'include' ])); };
@@ -2261,7 +2261,7 @@
    *
    * 获取提问列表。
    */
-  var getList$5 = function (params) {
+  var getList$3 = function (params) {
       if ( params === void 0 ) params = {};
 
       return getRequest(buildURL('/questions', params, [
@@ -2279,7 +2279,7 @@
    *
    * 获取提问的投票者。
    */
-  var getVoters$3 = function (params) { return getRequest(buildURL('/questions/{question_id}/voters', params, [
+  var getVoters = function (params) { return getRequest(buildURL('/questions/{question_id}/voters', params, [
       'page',
       'per_page',
       'include',
@@ -2289,31 +2289,31 @@
    *
    * 把提问放入回收站。
    */
-  var trash$3 = function (params) { return postRequest(buildURL('/questions/{question_id}/trash', params, ['include'])); };
+  var trash$1 = function (params) { return postRequest(buildURL('/questions/{question_id}/trash', params, ['include'])); };
   /**
    * 🔐批量把提问放入回收站
    *
    * 批量把提问放入回收站。
    */
-  var trashMultiple$3 = function (params) { return postRequest(buildURL('/questions/{question_ids}/trash', params, ['include'])); };
+  var trashMultiple$1 = function (params) { return postRequest(buildURL('/questions/{question_ids}/trash', params, ['include'])); };
   /**
    * 🔐把提问移出回收站
    *
    * 把提问移出回收站。
    */
-  var untrash$3 = function (params) { return postRequest(buildURL('/questions/{question_id}/untrash', params, ['include'])); };
+  var untrash$1 = function (params) { return postRequest(buildURL('/questions/{question_id}/untrash', params, ['include'])); };
   /**
    * 🔐批量把提问移出回收站
    *
    * 批量把提问移出回收站。
    */
-  var untrashMultiple$3 = function (params) { return postRequest(buildURL('/questions/{question_ids}/untrash', params, ['include'])); };
+  var untrashMultiple$1 = function (params) { return postRequest(buildURL('/questions/{question_ids}/untrash', params, ['include'])); };
   /**
    * 🔑更新提问信息
    *
    * 管理员可修改提问。提问作者是否可修改提问，由管理员在后台的设置决定。  &#x60;content_markdown&#x60; 和 &#x60;content_rendered&#x60; 两个参数仅传入其中一个即可， 若两个参数都传入，则以 &#x60;content_markdown&#x60; 为准。
    */
-  var update$5 = function (params) { return patchRequest(buildURL('/questions/{question_id}', params, ['include']), buildRequestBody(params, [
+  var update$2 = function (params) { return patchRequest(buildURL('/questions/{question_id}', params, ['include']), buildRequestBody(params, [
       'title',
       'topic_ids',
       'content_markdown',
@@ -2321,26 +2321,26 @@
 
   var QuestionApi = /*#__PURE__*/Object.freeze({
     __proto__: null,
-    del: del$5,
-    addFollow: addFollow$1,
-    addVote: addVote$3,
-    create: create$1,
+    del: del$2,
+    addFollow: addFollow$2,
+    addVote: addVote,
+    create: create$2,
     createAnswer: createAnswer,
-    createComment: createComment$2,
-    deleteFollow: deleteFollow$1,
-    deleteMultiple: deleteMultiple$5,
-    deleteVote: deleteVote$3,
-    get: get$5,
-    getAnswers: getAnswers,
-    getComments: getComments$2,
-    getFollowers: getFollowers$1,
-    getList: getList$5,
-    getVoters: getVoters$3,
-    trash: trash$3,
-    trashMultiple: trashMultiple$3,
-    untrash: untrash$3,
-    untrashMultiple: untrashMultiple$3,
-    update: update$5
+    createComment: createComment,
+    deleteFollow: deleteFollow$2,
+    deleteMultiple: deleteMultiple$2,
+    deleteVote: deleteVote,
+    get: get$3,
+    getAnswers: getAnswers$1,
+    getComments: getComments$1,
+    getFollowers: getFollowers$2,
+    getList: getList$3,
+    getVoters: getVoters,
+    trash: trash$1,
+    trashMultiple: trashMultiple$1,
+    untrash: untrash$1,
+    untrashMultiple: untrashMultiple$1,
+    update: update$2
   });
 
   /**
@@ -2348,25 +2348,25 @@
    *
    * 删除举报。
    */
-  var del$6 = function (params) { return deleteRequest(buildURL('/reports/{reportable_type}:{reportable_id}', params)); };
+  var del$1 = function (params) { return deleteRequest(buildURL('/reports/{reportable_type}:{reportable_id}', params)); };
   /**
    * 🔑添加举报
    *
    * 添加举报。
    */
-  var create$2 = function (params) { return postRequest(buildURL('/reports/{reportable_type}:{reportable_id}', params, ['include']), buildRequestBody(params, ['reason'])); };
+  var create$1 = function (params) { return postRequest(buildURL('/reports/{reportable_type}:{reportable_id}', params, ['include']), buildRequestBody(params, ['reason'])); };
   /**
    * 🔐批量删除举报
    *
    * 批量删除举报。  只要没有错误异常，无论是否有记录被删除，该接口都会返回成功。
    */
-  var deleteMultiple$6 = function (params) { return deleteRequest(buildURL('/reports/{report_targets}', params)); };
+  var deleteMultiple$1 = function (params) { return deleteRequest(buildURL('/reports/{report_targets}', params)); };
   /**
    * 🔐获取被举报的内容列表
    *
    * 获取被举报的内容列表。
    */
-  var getList$6 = function (params) {
+  var getList$2 = function (params) {
       if ( params === void 0 ) params = {};
 
       return getRequest(buildURL('/reports', params, [
@@ -2387,10 +2387,10 @@
 
   var ReportApi = /*#__PURE__*/Object.freeze({
     __proto__: null,
-    del: del$6,
-    create: create$2,
-    deleteMultiple: deleteMultiple$6,
-    getList: getList$6,
+    del: del$1,
+    create: create$1,
+    deleteMultiple: deleteMultiple$1,
+    getList: getList$2,
     getReasons: getReasons
   });
 
@@ -2399,11 +2399,11 @@
    *
    * 获取站点统计数据。
    */
-  var get$6 = function (params) { return getRequest(buildURL('/stats', params, ['include', 'start_date', 'end_date'])); };
+  var get$2 = function (params) { return getRequest(buildURL('/stats', params, ['include', 'start_date', 'end_date'])); };
 
   var StatsApi = /*#__PURE__*/Object.freeze({
     __proto__: null,
-    get: get$6
+    get: get$2
   });
 
   /**
@@ -2579,19 +2579,19 @@
    *
    * 删除话题。  只要没有错误异常，无论是否有话题被删除，该接口都会返回成功。
    */
-  var del$7 = function (params) { return deleteRequest(buildURL('/topics/{topic_id}', params)); };
+  var del = function (params) { return deleteRequest(buildURL('/topics/{topic_id}', params)); };
   /**
    * 🔑关注指定话题
    *
    * 关注指定话题。
    */
-  var addFollow$2 = function (params) { return postRequest(buildURL('/topics/{topic_id}/followers', params)); };
+  var addFollow$1 = function (params) { return postRequest(buildURL('/topics/{topic_id}/followers', params)); };
   /**
    * 🔐发布话题
    *
    * 发布话题。
    */
-  var create$3 = function (params) {
+  var create = function (params) {
       var formData = new FormData();
       formData.append('name', params.name);
       formData.append('description', params.description);
@@ -2603,25 +2603,25 @@
    *
    * 取消关注指定话题。
    */
-  var deleteFollow$2 = function (params) { return deleteRequest(buildURL('/topics/{topic_id}/followers', params)); };
+  var deleteFollow$1 = function (params) { return deleteRequest(buildURL('/topics/{topic_id}/followers', params)); };
   /**
    * 🔐批量删除话题
    *
    * 批量删除话题。  只要没有错误异常，无论是否有话题被删除，该接口都会返回成功。
    */
-  var deleteMultiple$7 = function (params) { return deleteRequest(buildURL('/topics/{topic_ids}', params)); };
+  var deleteMultiple = function (params) { return deleteRequest(buildURL('/topics/{topic_ids}', params)); };
   /**
    * 获取指定话题信息
    *
    * 获取指定话题信息。
    */
-  var get$7 = function (params) { return getRequest(buildURL('/topics/{topic_id}', params, ['include'])); };
+  var get$1 = function (params) { return getRequest(buildURL('/topics/{topic_id}', params, ['include'])); };
   /**
    * 获取指定话题下的文章
    *
    * 获取指定话题下的文章。
    */
-  var getArticles = function (params) { return getRequest(buildURL('/topics/{topic_id}/articles', params, [
+  var getArticles$1 = function (params) { return getRequest(buildURL('/topics/{topic_id}/articles', params, [
       'page',
       'per_page',
       'order',
@@ -2631,7 +2631,7 @@
    *
    * 不含已禁用的用户。
    */
-  var getFollowers$2 = function (params) { return getRequest(buildURL('/topics/{topic_id}/followers', params, [
+  var getFollowers$1 = function (params) { return getRequest(buildURL('/topics/{topic_id}/followers', params, [
       'page',
       'per_page',
       'include' ])); };
@@ -2640,7 +2640,7 @@
    *
    * 获取全部话题。
    */
-  var getList$7 = function (params) {
+  var getList$1 = function (params) {
       if ( params === void 0 ) params = {};
 
       return getRequest(buildURL('/topics', params, [
@@ -2657,7 +2657,7 @@
    *
    * 获取指定话题下的提问。
    */
-  var getQuestions = function (params) { return getRequest(buildURL('/topics/{topic_id}/questions', params, [
+  var getQuestions$1 = function (params) { return getRequest(buildURL('/topics/{topic_id}/questions', params, [
       'page',
       'per_page',
       'order',
@@ -2667,31 +2667,31 @@
    *
    * 把话题放入回收站。
    */
-  var trash$4 = function (params) { return postRequest(buildURL('/topics/{topic_id}/trash', params, ['include'])); };
+  var trash = function (params) { return postRequest(buildURL('/topics/{topic_id}/trash', params, ['include'])); };
   /**
    * 🔐批量把话题放入回收站
    *
    * 批量把话题放入回收站。
    */
-  var trashMultiple$4 = function (params) { return postRequest(buildURL('/topics/{topic_ids}/trash', params, ['include'])); };
+  var trashMultiple = function (params) { return postRequest(buildURL('/topics/{topic_ids}/trash', params, ['include'])); };
   /**
    * 🔐把话题移出回收站
    *
    * 把话题移出回收站。
    */
-  var untrash$4 = function (params) { return postRequest(buildURL('/topics/{topic_id}/untrash', params, ['include'])); };
+  var untrash = function (params) { return postRequest(buildURL('/topics/{topic_id}/untrash', params, ['include'])); };
   /**
    * 🔐批量把话题移出回收站
    *
    * 批量把话题移出回收站。
    */
-  var untrashMultiple$4 = function (params) { return postRequest(buildURL('/topics/{topic_ids}/untrash', params, ['include'])); };
+  var untrashMultiple = function (params) { return postRequest(buildURL('/topics/{topic_ids}/untrash', params, ['include'])); };
   /**
    * 🔐更新话题信息
    *
    * 更新话题信息。  因为 formData 类型的数据只能通过 post 请求提交，所以这里不用 patch 请求
    */
-  var update$6 = function (params) {
+  var update$1 = function (params) {
       var formData = new FormData();
       formData.append('topic_id', params.topic_id.toString());
       params.name && formData.append('name', params.name);
@@ -2702,21 +2702,21 @@
 
   var TopicApi = /*#__PURE__*/Object.freeze({
     __proto__: null,
-    del: del$7,
-    addFollow: addFollow$2,
-    create: create$3,
-    deleteFollow: deleteFollow$2,
-    deleteMultiple: deleteMultiple$7,
-    get: get$7,
-    getArticles: getArticles,
-    getFollowers: getFollowers$2,
-    getList: getList$7,
-    getQuestions: getQuestions,
-    trash: trash$4,
-    trashMultiple: trashMultiple$4,
-    untrash: untrash$4,
-    untrashMultiple: untrashMultiple$4,
-    update: update$6
+    del: del,
+    addFollow: addFollow$1,
+    create: create,
+    deleteFollow: deleteFollow$1,
+    deleteMultiple: deleteMultiple,
+    get: get$1,
+    getArticles: getArticles$1,
+    getFollowers: getFollowers$1,
+    getList: getList$1,
+    getQuestions: getQuestions$1,
+    trash: trash,
+    trashMultiple: trashMultiple,
+    untrash: untrash,
+    untrashMultiple: untrashMultiple,
+    update: update$1
   });
 
   // @ts-ignore
@@ -2725,7 +2725,7 @@
    *
    * 添加关注。
    */
-  var addFollow$3 = function (params) { return postRequest(buildURL('/users/{user_id}/followers', params)); };
+  var addFollow = function (params) { return postRequest(buildURL('/users/{user_id}/followers', params)); };
   /**
    * 🔐删除指定用户的头像，并重置为默认头像
    *
@@ -2743,7 +2743,7 @@
    *
    * 取消关注。
    */
-  var deleteFollow$3 = function (params) { return deleteRequest(buildURL('/users/{user_id}/followers', params)); };
+  var deleteFollow = function (params) { return deleteRequest(buildURL('/users/{user_id}/followers', params)); };
   /**
    * 🔑删除当前登录用户的头像，并重置为默认头像
    *
@@ -2785,13 +2785,13 @@
    *
    * 若是管理员调用该接口、或当前登录用户读取自己的个人信息，将返回用户的所有信息。  其他情况仅返回部分字段（去掉了隐私信息，隐私字段已用 🔐 标明）
    */
-  var get$8 = function (params) { return getRequest(buildURL('/users/{user_id}', params, ['include'])); };
+  var get = function (params) { return getRequest(buildURL('/users/{user_id}', params, ['include'])); };
   /**
    * 获取指定用户发表的回答
    *
    * 获取指定用户发表的回答。
    */
-  var getAnswers$1 = function (params) { return getRequest(buildURL('/users/{user_id}/answers', params, [
+  var getAnswers = function (params) { return getRequest(buildURL('/users/{user_id}/answers', params, [
       'page',
       'per_page',
       'order',
@@ -2801,7 +2801,7 @@
    *
    * 获取指定用户发表的文章。
    */
-  var getArticles$1 = function (params) { return getRequest(buildURL('/users/{user_id}/articles', params, [
+  var getArticles = function (params) { return getRequest(buildURL('/users/{user_id}/articles', params, [
       'page',
       'per_page',
       'order',
@@ -2811,7 +2811,7 @@
    *
    * 获取指定用户发表的评论。
    */
-  var getComments$3 = function (params) { return getRequest(buildURL('/users/{user_id}/comments', params, [
+  var getComments = function (params) { return getRequest(buildURL('/users/{user_id}/comments', params, [
       'page',
       'per_page',
       'order',
@@ -2830,7 +2830,7 @@
    *
    * 获取指定用户的关注者。
    */
-  var getFollowers$3 = function (params) { return getRequest(buildURL('/users/{user_id}/followers', params, [
+  var getFollowers = function (params) { return getRequest(buildURL('/users/{user_id}/followers', params, [
       'page',
       'per_page',
       'include' ])); };
@@ -2866,7 +2866,7 @@
    *
    * 仅管理员可使用 email 参数进行搜索。  仅管理员可获取已禁用的用户列表。
    */
-  var getList$8 = function (params) {
+  var getList = function (params) {
       if ( params === void 0 ) params = {};
 
       return getRequest(buildURL('/users', params, [
@@ -3002,7 +3002,7 @@
    *
    * 获取指定用户发表的提问。
    */
-  var getQuestions$1 = function (params) { return getRequest(buildURL('/users/{user_id}/questions', params, [
+  var getQuestions = function (params) { return getRequest(buildURL('/users/{user_id}/questions', params, [
       'page',
       'per_page',
       'order',
@@ -3035,7 +3035,7 @@
    *
    * 更新指定用户信息。
    */
-  var update$7 = function (params) { return patchRequest(buildURL('/users/{user_id}', params, ['include']), buildRequestBody(params, [
+  var update = function (params) { return patchRequest(buildURL('/users/{user_id}', params, ['include']), buildRequestBody(params, [
       'headline',
       'bio',
       'blog',
@@ -3086,26 +3086,26 @@
 
   var UserApi = /*#__PURE__*/Object.freeze({
     __proto__: null,
-    addFollow: addFollow$3,
+    addFollow: addFollow,
     deleteAvatar: deleteAvatar,
     deleteCover: deleteCover,
-    deleteFollow: deleteFollow$3,
+    deleteFollow: deleteFollow,
     deleteMyAvatar: deleteMyAvatar,
     deleteMyCover: deleteMyCover,
     disable: disable,
     disableMultiple: disableMultiple,
     enable: enable,
     enableMultiple: enableMultiple,
-    get: get$8,
-    getAnswers: getAnswers$1,
-    getArticles: getArticles$1,
-    getComments: getComments$3,
+    get: get,
+    getAnswers: getAnswers,
+    getArticles: getArticles,
+    getComments: getComments,
     getFollowees: getFollowees,
-    getFollowers: getFollowers$3,
+    getFollowers: getFollowers,
     getFollowingArticles: getFollowingArticles,
     getFollowingQuestions: getFollowingQuestions,
     getFollowingTopics: getFollowingTopics,
-    getList: getList$8,
+    getList: getList,
     getMine: getMine,
     getMyAnswers: getMyAnswers,
     getMyArticles: getMyArticles,
@@ -3116,11 +3116,11 @@
     getMyFollowingQuestions: getMyFollowingQuestions,
     getMyFollowingTopics: getMyFollowingTopics,
     getMyQuestions: getMyQuestions,
-    getQuestions: getQuestions$1,
+    getQuestions: getQuestions,
     register: register,
     sendPasswordResetEmail: sendPasswordResetEmail,
     sendRegisterEmail: sendRegisterEmail,
-    update: update$7,
+    update: update,
     updateMine: updateMine,
     updatePassword: updatePassword,
     uploadMyAvatar: uploadMyAvatar,
@@ -3146,5 +3146,5 @@
 
   Object.defineProperty(exports, '__esModule', { value: true });
 
-})));
+}));
 //# sourceMappingURL=mdclub-sdk.js.map

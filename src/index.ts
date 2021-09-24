@@ -1,19 +1,19 @@
-import defaults from './defaultsWithBrowserAdapter';
-import * as errors from './errors';
-import * as AnswerApi from './AnswerApi';
-import * as ArticleApi from './ArticleApi';
-import * as CaptchaApi from './CaptchaApi';
-import * as CommentApi from './CommentApi';
-import * as EmailApi from './EmailApi';
-import * as ImageApi from './ImageApi';
-import * as NotificationApi from './NotificationApi';
-import * as OptionApi from './OptionApi';
-import * as QuestionApi from './QuestionApi';
-import * as ReportApi from './ReportApi';
-import * as StatsApi from './StatsApi';
-import * as TokenApi from './TokenApi';
-import * as TopicApi from './TopicApi';
-import * as UserApi from './UserApi';
+import defaults from './defaultsWithBrowserAdapter.js';
+import * as errors from './errors.js';
+import * as AnswerApi from './AnswerApi.js';
+import * as ArticleApi from './ArticleApi.js';
+import * as CaptchaApi from './CaptchaApi.js';
+import * as CommentApi from './CommentApi.js';
+import * as EmailApi from './EmailApi.js';
+import * as ImageApi from './ImageApi.js';
+import * as NotificationApi from './NotificationApi.js';
+import * as OptionApi from './OptionApi.js';
+import * as QuestionApi from './QuestionApi.js';
+import * as ReportApi from './ReportApi.js';
+import * as StatsApi from './StatsApi.js';
+import * as TokenApi from './TokenApi.js';
+import * as TopicApi from './TopicApi.js';
+import * as UserApi from './UserApi.js';
 
 export {
   defaults,

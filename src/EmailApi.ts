@@ -1,6 +1,6 @@
-import { postRequest } from './util/requestAlias';
-import { buildURL, buildRequestBody } from './util/requestHandler';
-import { EmailResponse } from './models';
+import { postRequest } from './util/requestAlias.js';
+import { buildURL, buildRequestBody } from './util/requestHandler.js';
+import { EmailResponse } from './models.js';
 
 interface SendParams {
   /**

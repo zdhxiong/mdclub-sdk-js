@@ -1,11 +1,11 @@
-import { getRequest, postRequest, deleteRequest } from './util/requestAlias';
-import { buildURL } from './util/requestHandler';
+import { getRequest, postRequest, deleteRequest } from './util/requestAlias.js';
+import { buildURL } from './util/requestHandler.js';
 import {
   NotificationsResponse,
   NotificationResponse,
   EmptyResponse,
   NotificationCountResponse,
-} from './models';
+} from './models.js';
 
 interface DeleteParams {
   /**

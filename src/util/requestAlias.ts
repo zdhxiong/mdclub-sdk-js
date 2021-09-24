@@ -1,8 +1,8 @@
-import defaults from '../defaults';
-import { ResponseInterface } from './misc';
 import { isUndefined } from 'mdui.jq/es/utils';
 import PlainObject from 'mdui.jq/es/interfaces/PlainObject';
-import { METHOD_TYPE, GET, POST, PUT, PATCH, DELETE } from './requestMethod';
+import defaults from '../defaults.js';
+import { ResponseInterface } from './misc.js';
+import { METHOD_TYPE, GET, POST, PUT, PATCH, DELETE } from './requestMethod.js';
 
 if (isUndefined(defaults.adapter)) {
   throw new Error(

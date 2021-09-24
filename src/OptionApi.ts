@@ -1,6 +1,6 @@
-import { getRequest, patchRequest } from './util/requestAlias';
-import { buildURL, buildRequestBody } from './util/requestHandler';
-import { OptionResponse, OptionUpdateRequestBody } from './models';
+import { getRequest, patchRequest } from './util/requestAlias.js';
+import { buildURL, buildRequestBody } from './util/requestHandler.js';
+import { OptionResponse, OptionUpdateRequestBody } from './models.js';
 
 /**
  * 获取站点全局设置参数

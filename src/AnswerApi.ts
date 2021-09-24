@@ -3,8 +3,8 @@ import {
   postRequest,
   patchRequest,
   deleteRequest,
-} from './util/requestAlias';
-import { buildURL, buildRequestBody } from './util/requestHandler';
+} from './util/requestAlias.js';
+import { buildURL, buildRequestBody } from './util/requestHandler.js';
 import {
   CommentResponse,
   AnswerResponse,
@@ -14,7 +14,7 @@ import {
   EmptyResponse,
   CommentsResponse,
   VoteRequestBodyTypeEnum,
-} from './models';
+} from './models.js';
 
 interface DeleteParams {
   /**

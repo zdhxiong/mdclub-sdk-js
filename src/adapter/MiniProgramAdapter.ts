@@ -1,10 +1,10 @@
 import { isUndefined } from 'mdui.jq/es/utils';
-import globalOptions from '../defaults';
+import globalOptions from '../defaults.js';
 import {
   RequestAdapterInterface,
   RequestOptionsInterface,
   ResponseInterface,
-} from '../util/misc';
+} from '../util/misc.js';
 
 /**
  * 小程序适配器

@@ -1,6 +1,6 @@
-import { Pagination } from '../models';
 import PlainObject from 'mdui.jq/es/interfaces/PlainObject';
-import { METHOD_TYPE } from './requestMethod';
+import { Pagination } from '../models.js';
+import { METHOD_TYPE } from './requestMethod.js';
 
 export type BeforeSendCallback = () => void | false;
 export type SuccessCallback = (response: any) => void;

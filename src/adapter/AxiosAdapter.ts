@@ -1,18 +1,19 @@
 import axios from 'axios';
-import BrowserAbstract from './abstract/Browser';
-import globalOptions from '../defaults';
+import PlainObject from 'mdui.jq/es/interfaces/PlainObject';
+import extend from 'mdui.jq/es/functions/extend';
+import globalOptions from '../defaults.js';
 import {
   RequestAdapterInterface,
   RequestOptionsInterface,
   ResponseInterface,
-} from '../util/misc';
-import { GET } from '../util/requestMethod';
-import PlainObject from 'mdui.jq/es/interfaces/PlainObject';
-import extend from 'mdui.jq/es/functions/extend';
+} from '../util/misc.js';
+import { GET } from '../util/requestMethod.js';
+import BrowserAbstract from './abstract/Browser.js';
 
 export default class
   extends BrowserAbstract
-  implements RequestAdapterInterface {
+  implements RequestAdapterInterface
+{
   request(options: RequestOptionsInterface): Promise<ResponseInterface> {
     return new Promise((resolve, reject): void => {
       let headers: PlainObject = {

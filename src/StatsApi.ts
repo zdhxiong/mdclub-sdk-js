@@ -1,6 +1,6 @@
-import { getRequest } from './util/requestAlias';
-import { buildURL } from './util/requestHandler';
-import { StatsResponse } from './models';
+import { getRequest } from './util/requestAlias.js';
+import { buildURL } from './util/requestHandler.js';
+import { StatsResponse } from './models.js';
 
 interface GetParams {
   /**
