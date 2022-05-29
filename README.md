@@ -10,7 +10,7 @@
 
 ```html
 <script
-  src="https://cdn.jsdelivr.net/npm/mdclub-sdk-js@1.0.5/dist/mdclub-sdk.min.js"
+  src="mdclub-sdk.min.js"
   integrity="sha256-lMwIYBCuWSCv75NytImCOK8Qm4dHGMa9P3ege0Pd7gU="
   crossorigin="anonymous"
 ></script>
